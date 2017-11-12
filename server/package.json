@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "setup": "yarn install",
-    "start": "rimraf ./dev/build && webpack --config ./webpack/webpack.dev.config.js"
+    "start": "rimraf ./dev/build && NODE_ENV=development webpack --config ./webpack/webpack.dev.config.js"
   },
   "author": "",
   "license": "ISC",
@@ -25,6 +25,10 @@
     "webpack-node-externals": "^1.6.0"
   },
   "dependencies": {
-    "express": "^4.16.2"
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "lodash": "^4.17.4",
+    "mongoose": "^4.13.1",
+    "morgan": "^1.9.0"
   }
 }

@@ -1,20 +1,29 @@
 'use strict';
 
 require('pretty-error').start();
+
 const http = require('http');
-const { app, PORT } = require('../src');
+const { connectedServer, onConnect } = require('../src');
+const config = require('../src/config/env').default
 
-const server = http.createServer(app);
-server.listen(PORT, () => {
-  console.log('alright.....')
-});
+function startServer(app) {
+  const server = http.createServer(app);
+  server.listen(config.PORT, onConnect);
 
-let currentApp = app;
-if (module.hot) {
-  module.hot.accept(['../src/index.js'], () => {
-    server.removeListener('request', currentApp);
-    currentApp = require('../src').app;
-    server.on('request', currentApp);
-  });
+  let currentApp = app;
+  if (module.hot) {
+    module.hot.accept(['../src/index.js'], () => {
+      server.removeListener('request', currentApp);
+      currentApp = require('../src').app;
+      server.on('request', currentApp);
+    });
+  }
 }
+
+connectedServer
+  .then(startServer)
+  .catch(err => {
+    console.error(err);
+    process.exit();
+  });
 

@@ -1,6 +1,7 @@
 'use strict';
 
 const webpack = require('webpack');
+const _ = require('lodash');
 const path = require('path');
 const nodeExternals = require('webpack-node-externals');
 const StartServerPlugin = require('start-server-webpack-plugin');
@@ -20,7 +21,10 @@ config.plugins = [
   new webpack.HotModuleReplacementPlugin(),
   new webpack.NoEmitOnErrorsPlugin(),
   new webpack.DefinePlugin({
-    'process.env': Object.assign({ BUILD_TARGET: JSON.stringify('server') }, process.env.NODE_ENV)
+    'process.env': Object.assign(
+      { BUILD_TARGET: JSON.stringify('server') },
+      _.mapValues(process.env, JSON.stringify)
+    )
   })
 ]
 
