@@ -3,7 +3,9 @@
 
 # production
 /build
-/devBuild
+
+# development
+/dev
 
 # misc
 .DS_Store

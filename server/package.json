@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "setup": "yarn install",
-    "start": "rimraf ./devBuild && webpack --config ./webpack/webpack.dev.config.js"
+    "start": "rimraf ./dev/build && webpack --config ./webpack/webpack.dev.config.js"
   },
   "author": "",
   "license": "ISC",
