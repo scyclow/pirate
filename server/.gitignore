@@ -5,7 +5,7 @@
 /build
 
 # development
-/dev
+/dev/build
 
 # misc
 .DS_Store
