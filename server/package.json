@@ -1,0 +1,28 @@
+{
+  "name": "pirate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "setup": "yarn install",
+    "start": "rimraf ./devBuild && webpack --config ./webpack/webpack.dev.config.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-flow-strip-types": "^6.22.0",
+    "babel-register": "^6.26.0",
+    "flow-bin": "^0.59.0",
+    "pretty-error": "^2.1.1",
+    "rimraf": "^2.6.2",
+    "start-server-webpack-plugin": "^2.2.0",
+    "webpack": "^3.8.1",
+    "webpack-node-externals": "^1.6.0"
+  },
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
